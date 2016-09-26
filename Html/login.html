@@ -1,0 +1,255 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+       <link href="css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <script src="Scripts/jquery.mobile-1.4.5.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+     <style>
+    legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+    .st {
+    padding-top:2%;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:2%;
+    background:linear-gradient(lightblue,white)
+    }
+
+</style>
+  </head>   
+<body>
+     
+    <div data-role="page"id="page1">  
+    <div class="st">
+        <h1>Login </h1>
+       
+        
+          <label for="name">UserName:</label>
+          <input type="text" id="uname" name="user_name"/>
+          
+            <label for="mail">Password:</label>
+          <input type="text" id="pass" name="user_email"/>
+
+      <span class="alert">Invalid Credentials</span>
+      <a class="link" href="#">Lost your password?</a>
+     <input type="button" id="btnSubmit" class="log-btn" value="Log in"/>
+      
+    </div>
+      </div>    
+
+<div data-role="page"id="page2">
+    
+    <div data-role="header">
+
+<img src="image/Club-3D-Grafikcard-Tray-icon.png" style="height:100px;width:100px"/>
+   </div>
+
+<script>
+    //Load Drop Down Values Working
+    $(document).ready(function () {
+        alert("HI");
+    })
+    </script>
+<div data-role="navbar" class="ui-bar-b">
+		<ul>
+			<li><a href="#" class="ui-btn" data-icon="grid">Menu</a></li>
+			<li><a href="#page3" class="ui-btn" data-icon="calendar">Events</a></li>
+            
+			<li><a href="#" class="ui-btn" data-icon="shop">Facilities</a></li>
+            <li><a href="#" class="ui-btn" data-icon="navigation">Events requests</a></li>
+            <li><a href="#" class="ui-btn" data-icon="grid">Gallery</a></li>
+		</ul>
+    </div>
+  <div data-role="main" class="ui-content">
+   <p id="demo"></p>
+  
+
+  </div>
+
+  <div data-role="navbar" class="ui-bar-b">
+    <ul>
+         <li><a href="#" class="ui-btn" data-icon="back">back</a></li>
+         <li><a href="#" class="ui-btn" data-icon="arrow-r">next</a></li>
+        </ul>
+    
+  </div>
+    </div>
+     <div data-role="page" id="page3">
+      <div aria-label="page3"></div>   
+    <div data-role="header">
+
+<img src="image/Club-3D-Grafikcard-Tray-icon.png" style="height:100px;width:100px"/>
+   </div>
+
+<script>
+    //Load Drop Down Values Working
+    $(document).on("pagebeforeshow", "#page3", function () {
+           
+        alert("pagebeforeshow event fired - pagetwo is about to be shown");
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: "http://localhost:49798/WebService1.asmx/eventdate1",
+            dataType: "json",
+            success: function (data) {
+                  obj = data.d
+                   alert(obj);
+                    var cname = obj;
+                    $('#page1').hide();
+                    // $('#page2').show();
+                   // $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
+                    alert(cname);
+                    var trHTML='';
+                    for(var i=0;i<cname.length;i++)
+                 {
+                        trHTML+='<tr><td>'+cname[i].evename+'</td><td>'+cname[i].members+'</td><td>'+cname[i].evendate+'</td><td>'+cname[i].eventtime+'</td><tr>';
+                }
+                    $('#event').html(trHTML);
+                             ​
+                  },
+
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+    });
+    
+    </script>
+<div data-role="navbar" class="ui-bar-b">
+		<ul>
+			<li><a href="#" class="ui-btn" data-icon="grid">Menu</a></li>
+			<li><a href="#" class="ui-btn" data-icon="calendar">Events</a></li>
+            
+			<li><a href="#" class="ui-btn" data-icon="shop">Facilities</a></li>
+            <li><a href="#" class="ui-btn" data-icon="navigation">Events requests</a></li>
+            <li><a href="#" class="ui-btn" data-icon="grid">Gallery</a></li>
+		</ul>
+    </div>
+  <div data-role="main" class="ui-content">
+   <table id="event">
+
+   </table>
+  
+
+  </div>
+
+  <div data-role="navbar" class="ui-bar-b">
+    <ul>
+         <li><a href="#page2" class="ui-btn" data-icon="back">back</a></li>
+         <li><a href="#" class="ui-btn" data-icon="arrow-r">next</a></li>
+        </ul>
+    
+  </div>
+         </div>
+              
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $('#home').hide()
+    //});
+    $(function () {
+        $('#btnSubmit').click(function () {
+            // alert("work");
+            var uname = $('#uname').val();
+            var password = $('#pass').val();
+
+            if (uname != '' && password != '') {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "http://localhost:49798/WebService1.asmx/Insertdata",
+                    data: "{'username':'" + uname + "','password':'" + password + "'}",
+                    dataType: "json",
+                    success: function (data) {
+                        
+                        obj = data.d
+                        if (obj == 'false') {
+
+                            alert("INVALID USERID OR PASSWORD");
+                        }
+                        else
+                            alert(obj);
+                        var cname = obj;
+                        $('#page1').hide();
+                       // $('#page2').show();
+                        $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
+                        alert(cname);
+                        $.ajax({
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://localhost:49798/WebService1.asmx/Desc",
+                            data: "{'clubName':'" + cname + "'}",
+                            dataType: "json",
+                            success: function (data) {
+
+                                obj = data.d
+                                if (obj == 'false') {
+
+                                    alert("INVALID USERID OR PASSWORD");
+                                }
+                                else
+                                    alert(obj);
+                                var dname = obj;
+                                $('#page1').hide();
+                                // $('#page2').show();
+                                $.mobile.changePage("#page2", { transition: "slideup", changeHash: false });
+                                alert(cname);
+                                document.getElementById("demo").innerHTML = dname;
+                            },
+
+                            error: function (result) {
+                                alert("Error");
+                            }
+                        });
+                    },
+
+                    error: function (result) {
+                        alert("Error");
+                    }
+                });
+            }
+            else {
+                alert('Please enter all the fields')
+                return false;
+            }
+        })
+    });
+</script>
+    
+    <!--<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'/>-->
+
+</body>
+</html>
+

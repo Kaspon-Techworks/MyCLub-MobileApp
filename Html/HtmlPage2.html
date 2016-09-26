@@ -1,0 +1,370 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+       <link href="css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <script src="Scripts/jquery.mobile-1.4.5.js"></script>
+    <script src="Scripts/jquery.mobile-1.4.5.min.js"></script>
+     <style>
+    legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+    .st {
+    padding-top:2%;
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:2%;
+    background:linear-gradient(lightblue,white)
+    }
+
+</style>
+  </head>   
+<body>
+     
+      <div class="st">
+        <h1>Sign Up</h1>
+        
+        <fieldset>
+          <legend>Your basic info</legend>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name"/>
+          
+            <label for="mail">Mobile:</label>
+          <input type="text" id="Text4" name="user_email"/>
+          
+            <label for="mail">Email:</label>
+          <input type="text" id="mail" name="user_email"/>
+          
+          <!--<label for="password">Password:</label>
+          <input type="password" id="password" name="user_password"/>
+          
+            <label for="password">Confirm Password:</label>
+          <input type="password" id="password1" name="user_password2"/>
+          -->
+          <label>Age:</label>
+          <input type="text" id="age"/>
+        </fieldset>
+      <p> Choose your gender:</p>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male"/>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female"/>
+
+        <label for="job">Type Of Club:</label>
+        <select id="job" name="user_job">
+          
+        </select>
+        
+         <div id="drop">
+             <label for="job">Type Of Club:</label>
+        <select id="Select1" name="user_job">
+          
+        </select>
+         </div>
+           
+          <div id="alumclub">
+             <label for="type">Institute</label>
+               <input type="text" id="Text1" name="user_name"/>
+              <label for="type">Program</label>
+               <input type="text" id="Text2" name="user_name"/>
+              <label for="type">BatchPassedOutYear</label>
+               <input type="text" id="Text3" name="user_name"/>
+              <div id="Div1">
+             <label for="job">Relation Ship Status:</label>
+        <select id="Select2" name="state">
+          <option value="Single">Single</option>
+      <option value="Married">Married</option>
+        </select>
+         </div>
+                  <label for="type">Current Status:</label>
+        <input type="text" id="Text10" name="user_name"/>  
+              <label for="type">Dessignation:</label>
+        <input type="text" id="Text7" name="user_name"/> 
+              <label for="type">Organisation:</label>
+        <input type="text" id="Text11" name="user_name"/> 
+              <label for="type">DateofBirth:</label>
+               <input type="date" id="Text8" name="user_name"/>
+              <label for="type">Current Address:</label>
+               <input type="text" id="Text9" name="user_name"/> 
+              
+              <button type="submit"id="mcb">Sign Up</button>
+          </div>
+            <div id="alumini">
+            <!-- <label for="type">Institute</label>
+               <input type="text" id="Text4" name="user_name">
+            -->   
+                <label for="type">CurrentAddress:</label>
+               <input type="text" id="Text5" name="user_name"/>
+              <label for="type">CurrentStatus:</label>
+               <input type="text" id="Text6" name="user_name"/>
+                  <label for="type">SpeaciaSkills:</label>
+                <input type="text" id="Text12" name="user_name"/>
+         
+                <label for="type">Performance:</label>
+                <input type="text" id="Text13" name="user_name"/>
+         
+             
+                
+                
+             <button type="submit"id="acb">Sign Up</button>
+          </div>
+      <!--  <button type="submit">Sign Up</button>-->
+        </div>
+            <script>
+                hidediv = function () {
+                    $('#music_club,#alumini,#alumclub').hide();
+                }
+
+                $('#job').change(function () {
+                    //    $(this).find("option:selected").each(function () {
+                    //      var id = ($(this).val());
+                    // alert(id);
+                    // $('#drop').show();
+                    // });
+                    //Sub  Drop Down Not Workinmg
+                    // $.ajax({
+
+                    //   type: "POST",
+                    //    contentType: "application/json; charset=utf-8",
+                    //  url: 'WebForm1.aspx/Fetchdata1',
+                    //  data: "{'key1' : '" + id + "'}",
+                    // dataType: "json",
+                    // success: function (result) {
+                    //    alert("hio");
+                    //   var obj = result.d;
+                    //   $('#Select1').empty();
+                    //   alert("gio");
+                    //  $('#Select1').append("<option value='0'>--Select---</option>");
+                    // $.each(obj, function (key,value) {
+                    //    alert("ki");
+                    //  ('#Select1').append($("<option></option>").val(value.clid).html(value.clname));
+                    //  $('#drop').show();
+                    //   });
+                    // },
+
+                    //   error: function (xhr, status, error) {   
+                    //     alert(xhr.status);
+                    //       alert(xhr.responseText);
+                    //   }
+                    // });
+
+
+                    //--Update Music Club Table Working
+                    // $("select").change(function () {
+                    $(this).find("option:selected").each(function () {
+                        //var id = $('#job').find('option:selected').val();
+                        var id = ($(this).val());
+                        if ($(this).val() === '1') {
+                            hidediv();
+                            alert(id);
+                            $('#drop').show();
+                            //Sub  Drop Down  Workinmg
+                            $.ajax({
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                url: 'http://localhost:49798/WebService1.asmx/Fetchdata1',
+                                data: "{'key1' : '" + id + "'}",
+                                dataType: "JSON",
+                                success: function (result) {
+                                    alert("hio");
+                                    var obj = result.d;
+                                    $('#Select1').empty();
+                                    $('#Select1').append("<option value='0'>--Select---</option>");
+                                    $.each(JSON.parse(obj), function (key, value) {
+                                        $("#Select1").append($("<option></option>").val(value.clid).html(value.clname));
+                                        // $('#drop').show();
+                                    });
+                                },
+                                error: function (xhr, status, error) {
+                                    alert(xhr.status);
+                                    alert(xhr.responseText);
+                                }
+                            });
+                            $('#alumclub').show();
+                            $('#mcb').click(function () {
+                                var name = $('#name').val();
+                                var mobile = $('#Text4').val();
+                                var mail = $('#mail').val();
+                                var age = $('#age').val();
+                                var radioValue = $("input[name='gender']:checked").val();
+                                var raio = $('#Select2 option:selected').val();
+                                alert(raio);
+                                var clubid = $('#job option:selected').val();
+                                alert(clubid);
+                                var clubname = $('#Select1').find('option:selected').text();
+                                alert(clubname);
+                                var institute = $('#Text1').val();
+                                var Program = $('#Text2').val();
+                                var year = $('#Text3').val();
+                                var desig = $('#Text7').val();
+                                var dob = $('#Text8').val();
+                                var add = $('#Text9').val();
+                                var stat=$('#Text10').val();
+                                var org = $('#Text11').val();
+                                $.ajax({
+                                    type: "POST",
+                                    contentType: "application/json; charset=utf-8",
+                                    url: "WebService1.asmx/Updatedata",
+                                    data: "{'name':'" + name + "','mobile':'" + mobile + "','mail':'" + mail + "','age':'" + age + "','radioValue':'" + radioValue + "','raio':'" + raio + "','clubid':'" + clubid + "','institute':'" + institute + "','Program':'" + Program + "','year':'" + year + "','desig':'" + desig + "','dob':'" + dob + "','add':'"+add+"','stat':'"+stat+"','org':'"+org+"','clubname':'"+clubname+"'}",
+                                    dataType: "json",
+                                    success: function (result) {
+                                        var obj = result.d;
+                                        if (obj == "done")
+                                            alert("Sucess");
+                                        else
+                                            alert("fail");
+                                    },
+
+                                    error: function (xhr, status, error) {
+                                        alert(xhr.status);
+                                        alert(xhr.responseText);
+                                    }
+                                });
+
+                            });
+                        }
+                            //--Update ALumini Club Not Working
+                        else if ($(this).val() === '2') {
+                            hidediv();
+                            alert(id);
+                            $('#drop').show();
+                            //Sub  Drop Down Not Workinmg
+                            $.ajax({
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                url: 'WebService1.asmx/Fetchdata1',
+                                data: "{'key1' : '" + id + "'}",
+                                dataType: "json",
+                                success: function (result) {
+                                    alert("hio");
+                                    var obj = result.d;
+                                    $('#Select1').empty();
+                                    $('#Select1').append("<option value='0'>--Select---</option>");
+                                    $.each(JSON.parse(obj), function (key, value) {
+                                        $("#Select1").append($("<option></option>").val(value.clid).html(value.clname));
+                                        // $('#drop').show();
+                                    });
+                                },
+                                error: function (xhr, status, error) {
+                                    alert(xhr.status);
+                                    alert(xhr.responseText);
+                                }
+                            });
+                            $('#alumini').show();
+                            $('#acb').click(function () {
+                                var name = $('#name').val();
+                                var email = $('#mail').val();
+                                var clubname = $('#Select1').find('option:selected').text();
+                                var raio = $('#Select2 option:selected').val();
+                                var clubid = $('#job option:selected').val();
+                                var radioValue = $("input[name='gender']:checked").val();
+                                var mobile = $('#Text4').val();
+                                var CurrentAddress = $('#Text5').val();
+                                var CurrentStatus = $('#Text6').val();
+                                var SpeaciaSkills = $('#Text12').val();
+                                var Performance = $('#Text13').val();
+                                $.ajax({
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-9",
+                                    url: "WebService1.asmx/Updatedataa",
+                                    data: "{'name':'" + name + "','mobile':'" + mobile + "','email':'" + email + "','raio':'" + raio + "','clubid':'" + clubid + "','radioValue':'" + radioValue + "','CurrentAddress':'" + CurrentAddress + "','CurrentStatus':'" + CurrentStatus + "','SpeaciaSkills':'" + SpeaciaSkills + "','Performance':'" + Performance + "','clubname':'" + clubname + "'}",
+                                    dataType: "json",
+                                    success: function (result1) {
+                                        var obj = result1.d;
+                                        if (obj == "done") {
+                                            alert("Sucess");
+
+                                            var url = "samplehome.html?name=" + encodeURIComponent($("#name").val());
+                                            window.location.href = url;
+
+
+
+                                        }
+                                        else
+                                            alert("fail");
+                                    },
+
+                                    error: function (xhr, status, error) {
+                                        alert(xhr.status);
+                                        alert(xhr.responseText);
+                                    }
+                                });
+                            });
+                        }
+                    });
+                });
+                // });
+
+            </script>
+            <script>
+                //Load Drop Down Values Working
+                $(document).ready(function () {
+                    hidediv();
+                    $('#drop').hide();
+
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "http://localhost:49798/WebService1.asmx/GetEmployessJson",
+                        dataType: "JSON",
+                         success: function (data) {
+                            alert(data.d);
+                            $('#job').empty();
+                            $('#job').append("<option value='0'>--Select---</option>");
+                              $.each(JSON.parse(data.d),function(key,value) {
+                                $('#job').append($("<option></option>").val(value.key1).html(value.value));
+                            });
+                        },
+                        
+                       
+                        error: function (xhr, status, error) {
+                            alert(xhr.status);
+                            alert(xhr.responseText);
+                        },
+                        complete: function (xhr, status)
+                        {
+                            
+                           
+                            alert('complete: ');
+                        }
+                    });
+
+                });
+
+           </script>
+      
+     
+    <!-- /content -->
+<!-- /page -->
+</body>
+</html>
